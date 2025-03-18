@@ -5,13 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Starting Build Stage...'
-                sh 'g++ hello.cpp -o YOUR_SRN-1' // Replace YOUR_SRN-1 with your desired binary name
+                sh 'g++ hello.cpp -o PES1UG22CS499_1' // Replace YOUR_SRN-1 with your desired binary name
             }
         }
         stage('Test') {
             steps {
                 echo 'Starting Test Stage...'
-                sh './YOUR_SRN-1' // Replace YOUR_SRN-1 with the binary name from the Build stage
+                sh './PES1UG22CS499_1' // Replace YOUR_SRN-1 with the binary name from the Build stage
             }
         }
         stage('Deploy') {
