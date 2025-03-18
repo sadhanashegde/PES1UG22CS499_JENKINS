@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Starting Build Stage...'
+                sh 'g++ hello.cpp -o YOUR_SRN-1' // Replace YOUR_SRN-1 with your desired binary name
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Starting Test Stage...'
+                sh './YOUR_SRN-1' // Replace YOUR_SRN-1 with the binary name from the Build stage
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Starting Deploy Stage...'
+                echo 'Deployment successful (simulated for this pipeline)'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully.'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}
